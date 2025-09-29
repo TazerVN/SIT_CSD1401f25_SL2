@@ -1,0 +1,7 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(538,5): warning MSB8028: The intermediate directory (C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\.tmp\Debug-x64\) contains files shared from another project (Template.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  game.c
+C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(10,2): warning C4091: 'typedef ': ignored on left of 'Player' when no variable is declared
+  Template.vcxproj -> C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\bin\Debug-x64\SL2.exe
+  4 File(s) copied
+  1 File(s) copied
+  1 File(s) copied
