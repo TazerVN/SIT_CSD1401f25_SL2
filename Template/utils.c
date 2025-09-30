@@ -12,7 +12,19 @@ int IsAreaClicked(float area_center_x, float area_center_y, float area_width, fl
 	}
 }
 
+
+int squared(int x) {
+	return x * x;
+}
+
+
 int IsCircleClicked(float circle_center_x, float circle_center_y, float diameter, float click_x, float click_y)
 {
+	if (sqrt(squared(circle_center_x - click_x) + squared(circle_center_y- click_y)) <= diameter / 2) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
 }
 
