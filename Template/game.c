@@ -1,6 +1,7 @@
 #include "cprocessing.h"
 #include "mainmenu.h"
 #include "utils.h"
+#include <math.h>
 
 typedef struct Player {
 	CP_Vector position;
@@ -20,6 +21,8 @@ struct Player p2;
 CP_Font font;
 
 CP_Vector mouse_position;
+
+
 
 void init_player(struct Player* player, CP_Vector position, int diameter, CP_Color color, CP_BOOL control, int speed) {
 	player->position.x = position.x;
@@ -50,14 +53,14 @@ void drawPlayer(struct Player* player) {
 
 	float speed = player->speed;
 
-	float dt = CP_System_GetDt();
+	float dt = CP_System_GetDt()*4;
 
 
 	//wall collision
 	if (px + diameter / 2 + dx * speed >= window_w && dx > 0 || px - diameter / 2 + dx * speed <= 0 && dx < 0 ||
 		(py + diameter / 2 + dy * speed >= window_h && dy > 0) || (py - diameter / 2 + dy * speed <= 0 && dy < 0)) {
 		if (player->control == FALSE) {
-			if (p1.direction.x * p2.direction.x + p1.direction.y * p2.direction.y > 0) { //dot production experiment
+			if (sqrt(squared(p1.direction.x - p2.direction.x) + squared(p1.direction.y - p2.direction.y)) <= (p1.diameter/2 + p2.diameter/2)) {
 				if (CP_Random_GetBool() == TRUE) {
 					rotation = rotation + 90 >= 360 ? rotation + 90 - 360 : rotation + 90;
 				}
@@ -76,26 +79,30 @@ void drawPlayer(struct Player* player) {
 	if (player->control == TRUE) {
 		if (CP_Input_KeyDown(KEY_D)) {
 			if (dx < 1) {
-				dx += dt*5;
+				dx += dt * 2;
+				dy = 0;
 			}
 			rotation = 0;
 		}
 		if (CP_Input_KeyDown(KEY_A)) {
 			if (dx > -1) {
-				dx -= dt*5;
+				dx -= dt * 2;
+				dy = 0;
 			}
 			rotation = 180;
 		}
 		if (CP_Input_KeyDown(KEY_W)) {
 			if (dy > -1) {
-				dy -= dt*5;
+				dy -= dt * 2;
+				dx = 0;
 			}
 			rotation = 270;
 
 		}
 		if (CP_Input_KeyDown(KEY_S)) {
 			if (dy < 1) {
-				dy += dt*5;
+				dy += dt * 2;
+				dx = 0;
 			}
 			rotation = 90;
 
@@ -105,15 +112,20 @@ void drawPlayer(struct Player* player) {
 	else {
 		if (rotation == 0) {
 			dx = 1;
+			dy = 0;
 		}
 		if (rotation == 180) {
 			dx = -1;
+			dy = 0;
 		}
 		if (rotation == 90) {
 			dy = 1;
+			dx = 0;
 		}
 		if (rotation == 270) {
 			dy = -1;
+			dx = 0;
+
 		}
 	}
 
@@ -171,7 +183,7 @@ int velocity_col(struct Player* p1, struct Player* p2) {
 
 void Game_Init(void)
 {
-	font = CP_Font_Load("./Assets/Exo2-Regular.ttf");
+	font = CP_Font_Load("Assets/Exo2-Regular.ttf");
 	init_player(&p1, CP_Vector_Set(100, 100), 100, CP_Color_Create(255, 0, 0, 255), TRUE, 10);
 	init_player(&p2, CP_Vector_Set(100, CP_System_GetWindowHeight() - 100/2), 100, CP_Color_Create(0, 255, 0, 255), FALSE, 10);
 
@@ -198,30 +210,25 @@ void Game_Update(void)
 	mouse_position = CP_Vector_Set(CP_Input_GetMouseWorldX(), CP_Input_GetMouseWorldY());
 	CP_Graphics_ClearBackground(CP_Color_Create(0, 0, 0, 255));
 
-	drawPlayer(&p1);
-	drawPlayer(&p2);
+	if (p1.control == TRUE) {
+		drawPlayer(&p1);
+		drawPlayer(&p2);
+	}
+	else {
+		drawPlayer(&p2);
+		drawPlayer(&p1);
+	}
 	playerswitch(&p1, &p2, mouse_position);
 
 
 	if (velocity_col(&p1, &p2)) {
 		if (p1.control == FALSE) {
-			if (p2.direction.y == 0 || p2.direction.x == 0) {
-				p1.rotation = p1.rotation + 180 >= 360 ? p1.rotation + 180 - 360 : p1.rotation + 180;
-			}
-			else {
-				p1.rotation = p2.rotation;
-			}
+			p1.rotation = p1.rotation + 180 >= 360 ? p1.rotation + 180 - 360 : p1.rotation + 180;
 			p2.direction.x = p1.direction.x * 0.5;
 			p2.direction.y = p1.direction.x * 0.5;
 		}
 		if (p2.control == FALSE) {
-			if (p1.direction.y == 0 || p1.direction.x == 0) {
-				p2.rotation = p2.rotation + 180 >= 360 ? p2.rotation + 180 - 360 : p2.rotation + 180;
-			}
-			else {
-				p2.rotation = p1.rotation;
-			}
-
+			p2.rotation = p2.rotation + 180 >= 360 ? p2.rotation + 180 - 360 : p2.rotation + 180;
 			p1.direction.x = p2.direction.x * 0.5;
 			p1.direction.y = p2.direction.y * 0.5;
 		}
@@ -233,14 +240,6 @@ void Game_Update(void)
 	if (CP_Input_KeyDown(KEY_Q)) {
 		CP_Engine_SetNextGameState(Main_Menu_Init, Main_Menu_Update, Main_Menu_Exit);
 	}
-
-	CP_Font_Set(font);
-	CP_Settings_TextSize(20.0f);
-	char string[100] = { 0 };
-	sprintf_s(string, 100, "%lf %lf %lf %lf", p1.direction.x, p1.direction.y, mouse_position.x, mouse_position.y);
-	CP_Settings_Fill(CP_Color_Create(255, 255, 255, 255));
-	CP_Font_DrawText(string, 1500, 500);
-
 }
 
 void Game_Exit(void)

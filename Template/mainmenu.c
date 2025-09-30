@@ -115,7 +115,7 @@ void Main_Menu_Init(void)
 	rect2.scale = CP_Vector_Set(window_size.x / 8, window_size.y / 8);
 	rect2.lerp = 0;
 	rect2.exit_activation = FALSE;
-	font = CP_Font_Load("./Assets/Exo2-Regular.ttf");
+	font = CP_Font_Load("Assets/Exo2-Regular.ttf");
 
 }
 
@@ -127,9 +127,7 @@ void Main_Menu_Update(void)
 	CP_Settings_RectMode(CP_POSITION_CENTER);
 
 
-	//creating start button
 	rect_button(&rect1, mouse_position, nextState, "START", &alpha);
 	rect_button(&rect2, mouse_position, exit_menu, "EXIT", &alpha);
-	//draw rectangle
 }
 
