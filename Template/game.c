@@ -210,6 +210,19 @@ void Game_Update(void)
 	mouse_position = CP_Vector_Set(CP_Input_GetMouseWorldX(), CP_Input_GetMouseWorldY());
 	CP_Graphics_ClearBackground(CP_Color_Create(0, 0, 0, 255));
 
+	if (velocity_col(&p1, &p2)) {
+		if (p1.control == FALSE) {
+			p1.rotation = p1.rotation + 180 >= 360 ? p1.rotation + 180 - 360 : p1.rotation + 180;
+			p2.direction.x *= -1;
+			p2.direction.y *= -1;
+		}
+		if (p2.control == FALSE) {
+			p2.rotation = p2.rotation + 180 >= 360 ? p2.rotation + 180 - 360 : p2.rotation + 180;
+			p1.direction.x *= -1;
+			p1.direction.y *= -1;
+		}
+	}
+
 	if (p1.control == TRUE) {
 		drawPlayer(&p1);
 		drawPlayer(&p2);
@@ -221,18 +234,6 @@ void Game_Update(void)
 	playerswitch(&p1, &p2, mouse_position);
 
 
-	if (velocity_col(&p1, &p2)) {
-		if (p1.control == FALSE) {
-			p1.rotation = p1.rotation + 180 >= 360 ? p1.rotation + 180 - 360 : p1.rotation + 180;
-			p2.direction.x = p1.direction.x * 0.5;
-			p2.direction.y = p1.direction.x * 0.5;
-		}
-		if (p2.control == FALSE) {
-			p2.rotation = p2.rotation + 180 >= 360 ? p2.rotation + 180 - 360 : p2.rotation + 180;
-			p1.direction.x = p2.direction.x * 0.5;
-			p1.direction.y = p2.direction.y * 0.5;
-		}
-	}
 
 	
 

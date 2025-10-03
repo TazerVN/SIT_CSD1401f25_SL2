@@ -1,23 +1,18 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(538,5): warning MSB8028: The intermediate directory (C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\.tmp\Debug-x64\) contains files shared from another project (Template.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(538,5): warning MSB8028: The intermediate directory (C:\Users\User\Documents\SIT\git\SIT_CSD1401f25_SL2\.tmp\Debug-x64\) contains files shared from another project (Template.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   game.c
-C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(15,2): warning C4091: 'typedef ': ignored on left of 'Player' when no variable is declared
-C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(63,13): warning C4013: 'squared' undefined; assuming extern returning int
-C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(154,32): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
-C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(154,57): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
-C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(155,32): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
-C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(155,57): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
-C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(163,33): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
-C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(165,141): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
-C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(54,22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(188,66): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
-C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(195,57): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
-C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(199,62): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
-C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(226,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(227,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(237,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(238,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\Template\game.c(252,2): warning C4013: 'sprintf_s' undefined; assuming extern returning int
-  Template.vcxproj -> C:\Users\TazerVN\Documents\github\C\SIT_CSD1401f25_SL2\bin\Debug-x64\SL2.exe
+C:\Users\User\Documents\SIT\git\SIT_CSD1401f25_SL2\Template\game.c(15,2): warning C4091: 'typedef ': ignored on left of 'Player' when no variable is declared
+C:\Users\User\Documents\SIT\git\SIT_CSD1401f25_SL2\Template\game.c(63,13): warning C4013: 'squared' undefined; assuming extern returning int
+C:\Users\User\Documents\SIT\git\SIT_CSD1401f25_SL2\Template\game.c(154,32): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Documents\SIT\git\SIT_CSD1401f25_SL2\Template\game.c(154,57): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Documents\SIT\git\SIT_CSD1401f25_SL2\Template\game.c(155,32): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Documents\SIT\git\SIT_CSD1401f25_SL2\Template\game.c(155,57): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Documents\SIT\git\SIT_CSD1401f25_SL2\Template\game.c(163,33): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Documents\SIT\git\SIT_CSD1401f25_SL2\Template\game.c(165,141): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Documents\SIT\git\SIT_CSD1401f25_SL2\Template\game.c(54,22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Documents\SIT\git\SIT_CSD1401f25_SL2\Template\game.c(188,66): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Documents\SIT\git\SIT_CSD1401f25_SL2\Template\game.c(195,57): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Documents\SIT\git\SIT_CSD1401f25_SL2\Template\game.c(199,62): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
+  Template.vcxproj -> C:\Users\User\Documents\SIT\git\SIT_CSD1401f25_SL2\bin\Debug-x64\SL2.exe
   4 File(s) copied
   1 File(s) copied
   1 File(s) copied
